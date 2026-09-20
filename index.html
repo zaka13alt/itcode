@@ -4,25 +4,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ITCode — Learn to Code</title>
-  <meta name="description" content="ITCode — Learn programming, networking, web development, and computer science.">
+
+  <title>ITCode - Programming Tutorials</title>
+  <meta name="description" content="ITCode — Learn to Code">
 
   <style>
-    :root {
-      --bg: #f5f7fb;
-      --surface: #ffffff;
-      --surface-soft: #eef3f8;
-      --text: #172033;
-      --muted: #64748b;
-      --border: #dce3ec;
-      --primary: #2563eb;
-      --primary-dark: #1d4ed8;
-      --code-bg: #111827;
-      --green: #16a34a;
-      --orange: #ea580c;
-      --purple: #7c3aed;
-    }
-
     * {
       box-sizing: border-box;
     }
@@ -33,16 +19,9 @@
 
     body {
       margin: 0;
-      font-family:
-        Inter,
-        ui-sans-serif,
-        system-ui,
-        -apple-system,
-        BlinkMacSystemFont,
-        "Segoe UI",
-        sans-serif;
-      background: var(--bg);
-      color: var(--text);
+      background: #f7f7f5;
+      color: #222;
+      font-family: Arial, Helvetica, sans-serif;
       line-height: 1.6;
     }
 
@@ -51,352 +30,249 @@
       text-decoration: none;
     }
 
-    .navbar {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      height: 68px;
+    /* Header */
+
+    header {
+      height: 62px;
+      background: #fff;
+      border-bottom: 1px solid #ddd;
+      display: flex;
+      align-items: center;
+      padding: 0 32px;
+    }
+
+    .header-inner {
+      width: 100%;
+      max-width: 1100px;
+      margin: auto;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 0 7%;
-      background: rgba(255, 255, 255, 0.94);
-      border-bottom: 1px solid var(--border);
-      backdrop-filter: blur(12px);
     }
 
     .logo {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      font-size: 22px;
-      font-weight: 800;
-      color: var(--text);
+      font-size: 21px;
+      font-weight: bold;
+      letter-spacing: -0.5px;
     }
 
-    .logo-mark {
-      width: 36px;
-      height: 36px;
-      display: grid;
-      place-items: center;
-      border-radius: 9px;
-      background: var(--primary);
-      color: white;
-      font-family: monospace;
-      font-size: 18px;
+    .logo span {
+      color: #2864d7;
     }
 
-    .nav-links {
+    nav {
       display: flex;
-      gap: 26px;
-      color: var(--muted);
+      gap: 24px;
       font-size: 14px;
-      font-weight: 600;
+      color: #555;
     }
 
-    .nav-links a:hover {
-      color: var(--primary);
+    nav a:hover {
+      color: #111;
     }
 
-    .hero {
-      padding: 90px 7% 75px;
-      background:
-        linear-gradient(180deg, #ffffff 0%, #f5f7fb 100%);
-      border-bottom: 1px solid var(--border);
-    }
+    /* Main */
 
-    .hero-content {
+    main {
       max-width: 1100px;
       margin: auto;
-      display: grid;
-      grid-template-columns: 1.25fr 0.75fr;
-      gap: 60px;
-      align-items: center;
+      padding: 55px 25px 80px;
     }
 
-    .eyebrow {
-      display: inline-block;
-      padding: 6px 11px;
-      border-radius: 999px;
-      background: #dbeafe;
-      color: #1d4ed8;
-      font-size: 13px;
+    .intro {
+      max-width: 720px;
+      margin-bottom: 65px;
+    }
+
+    .intro h1 {
+      margin: 0 0 15px;
+      font-size: 42px;
+      line-height: 1.15;
+      letter-spacing: -1.5px;
       font-weight: 700;
-      margin-bottom: 18px;
     }
 
-    h1 {
-      margin: 0 0 18px;
-      font-size: clamp(42px, 6vw, 68px);
-      line-height: 1.05;
-      letter-spacing: -2px;
-    }
-
-    .hero p {
-      max-width: 650px;
-      margin: 0 0 28px;
-      color: var(--muted);
-      font-size: 18px;
-    }
-
-    .hero-buttons {
-      display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
-    }
-
-    .button {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 12px 20px;
-      border-radius: 8px;
-      font-weight: 700;
-      font-size: 14px;
-      border: 1px solid var(--border);
-    }
-
-    .button-primary {
-      background: var(--primary);
-      color: white;
-      border-color: var(--primary);
-    }
-
-    .button-primary:hover {
-      background: var(--primary-dark);
-    }
-
-    .button-secondary {
-      background: white;
-    }
-
-    .button-secondary:hover {
-      background: var(--surface-soft);
-    }
-
-    .code-window {
-      overflow: hidden;
-      border-radius: 12px;
-      background: var(--code-bg);
-      box-shadow: 0 20px 50px rgba(15, 23, 42, 0.18);
-    }
-
-    .code-header {
-      height: 38px;
-      display: flex;
-      align-items: center;
-      gap: 7px;
-      padding: 0 14px;
-      background: #1f2937;
-    }
-
-    .dot {
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      background: #64748b;
-    }
-
-    pre {
+    .intro p {
       margin: 0;
-      padding: 24px;
-      overflow-x: auto;
-      color: #d1d5db;
-      font: 14px/1.7 Consolas, Monaco, monospace;
+      max-width: 650px;
+      color: #666;
+      font-size: 17px;
     }
 
-    .keyword {
-      color: #c084fc;
-    }
-
-    .function {
-      color: #60a5fa;
-    }
-
-    .string {
-      color: #86efac;
-    }
+    /* Section */
 
     section {
-      padding: 75px 7%;
+      margin-bottom: 65px;
     }
 
-    .section-container {
-      max-width: 1100px;
-      margin: auto;
+    .section-title {
+      margin-bottom: 22px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid #ddd;
     }
 
-    .section-heading {
-      margin-bottom: 35px;
-    }
-
-    .section-heading h2 {
-      margin: 0 0 8px;
-      font-size: 32px;
-      letter-spacing: -0.8px;
-    }
-
-    .section-heading p {
+    .section-title h2 {
+      display: inline;
       margin: 0;
-      color: var(--muted);
+      font-size: 25px;
+      letter-spacing: -0.5px;
     }
 
-    .tutorial-grid {
+    .section-title p {
+      display: inline;
+      margin-left: 12px;
+      color: #888;
+      font-size: 14px;
+    }
+
+    /* Tutorials */
+
+    .tutorials {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
     }
 
-    .tutorial-card {
-      display: block;
-      padding: 25px;
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      transition: transform 0.15s ease, border-color 0.15s ease,
-                  box-shadow 0.15s ease;
+    .tutorial {
+      background: white;
+      border: 1px solid #ddd;
+      padding: 23px;
+      transition: border-color 0.15s, transform 0.15s;
     }
 
-    .tutorial-card:hover {
-      transform: translateY(-3px);
-      border-color: #b8c8df;
-      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.07);
+    .tutorial:hover {
+      border-color: #aaa;
+      transform: translateY(-2px);
     }
 
-    .icon {
-      width: 45px;
-      height: 45px;
-      display: grid;
-      place-items: center;
-      margin-bottom: 18px;
-      border-radius: 10px;
-      background: var(--surface-soft);
-      font-weight: 800;
-      font-family: monospace;
-    }
-
-    .python {
-      color: #2563eb;
-    }
-
-    .node {
-      color: var(--green);
-    }
-
-    .network {
-      color: var(--orange);
-    }
-
-    .web {
-      color: var(--purple);
-    }
-
-    .tutorial-card h3 {
+    .tutorial h3 {
       margin: 0 0 7px;
       font-size: 19px;
     }
 
-    .tutorial-card p {
-      margin: 0 0 17px;
-      color: var(--muted);
+    .tutorial p {
+      margin: 0 0 14px;
+      color: #666;
       font-size: 14px;
+      max-width: 500px;
     }
 
-    .learn-link {
-      color: var(--primary);
-      font-size: 14px;
-      font-weight: 700;
+    .read {
+      color: #2864d7;
+      font-size: 13px;
+      font-weight: bold;
     }
 
-    .topics {
-      background: #ffffff;
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-    }
+    /* Small category label */
 
-    .topic-list {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 12px;
-    }
-
-    .topic {
-      padding: 16px;
-      background: var(--bg);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      font-weight: 650;
-      font-size: 14px;
-    }
-
-    .topic span {
+    .label {
       display: block;
-      margin-top: 3px;
-      color: var(--muted);
-      font-size: 12px;
-      font-weight: 400;
+      margin-bottom: 8px;
+      color: #888;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.7px;
     }
 
-    .roadmap {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 0;
-      margin-top: 30px;
-    }
+    /* Featured */
 
-    .step {
-      position: relative;
-      padding: 20px;
-      border-top: 3px solid var(--primary);
-    }
-
-    .step-number {
-      color: var(--primary);
-      font-weight: 800;
-      font-size: 13px;
-    }
-
-    .step h3 {
-      margin: 6px 0;
-      font-size: 17px;
-    }
-
-    .step p {
-      margin: 0;
-      color: var(--muted);
-      font-size: 13px;
-    }
-
-    .cta {
-      padding: 65px 7%;
-    }
-
-    .cta-box {
-      max-width: 1100px;
-      margin: auto;
-      padding: 45px;
-      border-radius: 14px;
-      background: #172033;
+    .featured {
+      background: #20252b;
       color: white;
-      text-align: center;
+      padding: 30px;
+      margin-bottom: 65px;
     }
 
-    .cta-box h2 {
-      margin: 0 0 10px;
-      font-size: 30px;
+    .featured .label {
+      color: #aeb6c0;
     }
 
-    .cta-box p {
-      max-width: 600px;
-      margin: 0 auto 25px;
-      color: #b8c2d1;
+    .featured h2 {
+      margin: 0 0 8px;
+      font-size: 27px;
     }
+
+    .featured p {
+      margin: 0 0 18px;
+      color: #c4c9cf;
+      max-width: 650px;
+    }
+
+    .featured a {
+      display: inline-block;
+      padding: 9px 15px;
+      background: white;
+      color: #20252b;
+      font-size: 13px;
+      font-weight: bold;
+    }
+
+    /* Networking list */
+
+    .network-list {
+      background: white;
+      border: 1px solid #ddd;
+    }
+
+    .network-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 17px 20px;
+      border-bottom: 1px solid #e5e5e5;
+    }
+
+    .network-item:last-child {
+      border-bottom: none;
+    }
+
+    .network-item:hover {
+      background: #fafafa;
+    }
+
+    .network-name {
+      font-weight: bold;
+    }
+
+    .network-description {
+      color: #777;
+      font-size: 13px;
+      margin-top: 2px;
+    }
+
+    .arrow {
+      color: #2864d7;
+      font-size: 18px;
+    }
+
+    /* Quick links */
+
+    .quick-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px;
+    }
+
+    .quick-links a {
+      background: white;
+      border: 1px solid #d8d8d8;
+      padding: 9px 14px;
+      font-size: 13px;
+      color: #444;
+    }
+
+    .quick-links a:hover {
+      border-color: #aaa;
+      color: #111;
+    }
+
+    /* Footer */
 
     footer {
-      padding: 30px 7%;
-      background: #ffffff;
-      border-top: 1px solid var(--border);
-      color: var(--muted);
+      border-top: 1px solid #ddd;
+      background: white;
+      padding: 28px 25px;
+      color: #777;
       font-size: 13px;
     }
 
@@ -405,53 +281,43 @@
       margin: auto;
       display: flex;
       justify-content: space-between;
-      gap: 20px;
     }
 
-    @media (max-width: 850px) {
-      .hero-content {
-        grid-template-columns: 1fr;
+    /* Mobile */
+
+    @media (max-width: 700px) {
+      header {
+        padding: 0 18px;
       }
 
-      .tutorial-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .topic-list,
-      .roadmap {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .nav-links {
+      nav {
         display: none;
       }
-    }
 
-    @media (max-width: 560px) {
-      .hero {
-        padding-top: 60px;
+      main {
+        padding: 40px 18px 60px;
       }
 
-      section {
-        padding: 55px 5%;
+      .intro h1 {
+        font-size: 34px;
       }
 
-      .tutorial-grid,
-      .topic-list,
-      .roadmap {
+      .tutorials {
         grid-template-columns: 1fr;
       }
 
-      .navbar {
-        padding: 0 5%;
+      .section-title p {
+        display: block;
+        margin: 3px 0 0;
       }
 
-      .cta-box {
-        padding: 30px 20px;
+      .network-item {
+        gap: 15px;
       }
 
       .footer-inner {
         flex-direction: column;
+        gap: 5px;
       }
     }
   </style>
@@ -460,329 +326,234 @@
 
 <body>
 
-  <header class="navbar">
-    <a href="/" class="logo">
-      <span class="logo-mark">&lt;/&gt;</span>
-      ITCode
-    </a>
+<header>
+  <div class="header-inner">
 
-```
-<nav class="nav-links">
-  <a href="#tutorials">Tutorials</a>
+
+<a href="/" class="logo">
+  <span>IT</span>Code
+</a>
+
+<nav>
+  <a href="/">Home</a>
+  <a href="#programming">Programming</a>
   <a href="#networking">Networking</a>
-  <a href="#roadmap">Roadmap</a>
-  <a href="#about">About</a>
+  <a href="#other">Other</a>
 </nav>
-```
 
-  </header>
-
-  <main>
-
-```
-<section class="hero">
-  <div class="hero-content">
-
-    <div>
-      <span class="eyebrow">Learn • Build • Understand</span>
-
-      <h1>Learn how technology works.</h1>
-
-      <p>
-        ITCode is a collection of practical tutorials for programming,
-        web development, networking, and the technologies behind the
-        internet.
-      </p>
-
-      <div class="hero-buttons">
-        <a class="button button-primary" href="#tutorials">
-          Explore Tutorials
-        </a>
-
-        <a class="button button-secondary" href="/study/python">
-          Start with Python
-        </a>
-      </div>
-    </div>
-
-    <div class="code-window">
-      <div class="code-header">
-        <span class="dot"></span>
-        <span class="dot"></span>
-        <span class="dot"></span>
-      </div>
-
-      <pre><span class="keyword">def</span> <span class="function">learn</span>(topic):
-<span class="keyword">if</span> topic:
-    <span class="keyword">return</span> <span class="string">"keep learning"</span>
-```
-
-topic = <span class="string">"programming"</span> <span class="function">print</span>(<span class="function">learn</span>(topic))</pre> </div>
-
-```
-  </div>
-</section>
-
-
-<section id="tutorials">
-  <div class="section-container">
-
-    <div class="section-heading">
-      <h2>Programming Tutorials</h2>
-      <p>Build a strong foundation with popular programming technologies.</p>
-    </div>
-
-    <div class="tutorial-grid">
-
-      <a href="/study/python" class="tutorial-card">
-        <div class="icon python">Py</div>
-        <h3>Python</h3>
-        <p>
-          Learn Python from the basics through functions, modules,
-          files, APIs, and practical programs.
-        </p>
-        <span class="learn-link">Learn Python →</span>
-      </a>
-
-      <a href="/study/node" class="tutorial-card">
-        <div class="icon node">JS</div>
-        <h3>Node.js</h3>
-        <p>
-          Learn server-side JavaScript, npm, modules, HTTP servers,
-          APIs, and asynchronous programming.
-        </p>
-        <span class="learn-link">Learn Node.js →</span>
-      </a>
-
-      <a href="/study/javascript" class="tutorial-card">
-        <div class="icon web">JS</div>
-        <h3>JavaScript</h3>
-        <p>
-          Learn variables, functions, objects, arrays, DOM APIs,
-          events, promises, and modern JavaScript.
-        </p>
-        <span class="learn-link">Learn JavaScript →</span>
-      </a>
-
-      <a href="/study/html" class="tutorial-card">
-        <div class="icon web">HTML</div>
-        <h3>HTML & CSS</h3>
-        <p>
-          Learn how webpages are structured and styled using HTML,
-          CSS, layouts, forms, and responsive design.
-        </p>
-        <span class="learn-link">Learn HTML & CSS →</span>
-      </a>
-
-      <a href="/study/git" class="tutorial-card">
-        <div class="icon network">Git</div>
-        <h3>Git & Version Control</h3>
-        <p>
-          Learn repositories, commits, branches, merging, remotes,
-          and collaborative development.
-        </p>
-        <span class="learn-link">Learn Git →</span>
-      </a>
-
-      <a href="/study/apis" class="tutorial-card">
-        <div class="icon network">API</div>
-        <h3>APIs</h3>
-        <p>
-          Understand REST APIs, requests, responses, JSON,
-          authentication, and building your own APIs.
-        </p>
-        <span class="learn-link">Learn APIs →</span>
-      </a>
-
-    </div>
-  </div>
-</section>
-
-
-<section id="networking" class="topics">
-  <div class="section-container">
-
-    <div class="section-heading">
-      <h2>Networking & Internet</h2>
-      <p>
-        Understand what happens underneath the applications you use every day.
-      </p>
-    </div>
-
-    <div class="tutorial-grid">
-
-      <a href="/study/tcp" class="tutorial-card">
-        <div class="icon network">TCP</div>
-        <h3>TCP/IP</h3>
-        <p>
-          Learn IP addresses, ports, TCP connections, packets,
-          routing, and the TCP/IP model.
-        </p>
-        <span class="learn-link">Study TCP/IP →</span>
-      </a>
-
-      <a href="/study/http" class="tutorial-card">
-        <div class="icon web">HTTP</div>
-        <h3>How HTTP Works</h3>
-        <p>
-          Learn HTTP requests, responses, methods, status codes,
-          headers, cookies, caching, and HTTPS.
-        </p>
-        <span class="learn-link">Study HTTP →</span>
-      </a>
-
-      <a href="/study/dns" class="tutorial-card">
-        <div class="icon network">DNS</div>
-        <h3>DNS</h3>
-        <p>
-          Understand domain names, DNS records, resolvers,
-          nameservers, and how domains become IP addresses.
-        </p>
-        <span class="learn-link">Study DNS →</span>
-      </a>
-
-      <a href="/study/tls" class="tutorial-card">
-        <div class="icon web">TLS</div>
-        <h3>HTTPS & TLS</h3>
-        <p>
-          Learn certificates, encryption, TLS handshakes,
-          authentication, and secure web connections.
-        </p>
-        <span class="learn-link">Study TLS →</span>
-      </a>
-
-    </div>
-  </div>
-</section>
-
-
-<section>
-  <div class="section-container">
-
-    <div class="section-heading">
-      <h2>More Topics</h2>
-      <p>Explore the building blocks of modern computing.</p>
-    </div>
-
-    <div class="topic-list">
-      <a href="/study/linux" class="topic">
-        Linux
-        <span>Operating systems & command line</span>
-      </a>
-
-      <a href="/study/security" class="topic">
-        Web Security
-        <span>Security concepts & common threats</span>
-      </a>
-
-      <a href="/study/databases" class="topic">
-        Databases
-        <span>SQL, data, queries & storage</span>
-      </a>
-
-      <a href="/study/json" class="topic">
-        JSON
-        <span>Data exchange on the web</span>
-      </a>
-
-      <a href="/study/ssh" class="topic">
-        SSH
-        <span>Remote computer access</span>
-      </a>
-
-      <a href="/study/cli" class="topic">
-        Command Line
-        <span>Terminal tools & workflows</span>
-      </a>
-
-      <a href="/study/websockets" class="topic">
-        WebSockets
-        <span>Real-time browser communication</span>
-      </a>
-
-      <a href="/study/servers" class="topic">
-        Web Servers
-        <span>Serving websites & applications</span>
-      </a>
-    </div>
 
   </div>
-</section>
+</header>
+
+<main>
+
+  <div class="intro">
+    <h1>ITCode</h1>
 
 
-<section id="roadmap">
-  <div class="section-container">
+<p>
+  Tutorials about programming, web development, networking, and
+  the stuff that makes the internet work. Nothing too complicated —
+  just explanations and examples you can actually follow.
+</p>
 
-    <div class="section-heading">
-      <h2>Suggested Learning Path</h2>
-      <p>A simple path from beginner concepts to understanding the web.</p>
-    </div>
 
-    <div class="roadmap">
-
-      <div class="step">
-        <div class="step-number">01</div>
-        <h3>Programming</h3>
-        <p>
-          Start with Python or JavaScript and learn fundamental
-          programming concepts.
-        </p>
-      </div>
-
-      <div class="step">
-        <div class="step-number">02</div>
-        <h3>The Web</h3>
-        <p>
-          Learn HTML, CSS, JavaScript, browsers, and how webpages
-          are constructed.
-        </p>
-      </div>
-
-      <div class="step">
-        <div class="step-number">03</div>
-        <h3>Networking</h3>
-        <p>
-          Study IP, TCP, DNS, HTTP, TLS, ports, packets, and
-          network communication.
-        </p>
-      </div>
-
-      <div class="step">
-        <div class="step-number">04</div>
-        <h3>Build</h3>
-        <p>
-          Combine everything by building servers, APIs, websites,
-          and useful applications.
-        </p>
-      </div>
-
-    </div>
   </div>
-</section>
+
+  <div class="featured">
+    <span class="label">Start here</span>
 
 
-<section id="about" class="cta">
-  <div class="cta-box">
-    <h2>Understand the technology you use.</h2>
+<h2>How does the web actually work?</h2>
+
+<p>
+  When you type a website into your browser, quite a lot happens
+  before the page appears. Learn about DNS, TCP, HTTP, TLS, and
+  how your browser talks to a server.
+</p>
+
+<a href="/study/http">Read the HTTP tutorial →</a>
+
+
+  </div>
+
+  <section id="programming">
+
+
+<div class="section-title">
+  <h2>Programming</h2>
+  <p>Learn the basics and build things.</p>
+</div>
+
+<div class="tutorials">
+
+  <a href="/study/python" class="tutorial">
+    <span class="label">Programming</span>
+    <h3>Python</h3>
     <p>
-      ITCode focuses on practical explanations that help you understand
-      not just what to type, but why it works.
+      A beginner-friendly introduction to Python. Variables,
+      conditions, loops, functions, lists, files, and more.
     </p>
+    <span class="read">Read tutorial →</span>
+  </a>
 
-    <a href="/study/python" class="button button-primary">
-      Begin Learning
-    </a>
-  </div>
-</section>
+  <a href="/study/node" class="tutorial">
+    <span class="label">JavaScript</span>
+    <h3>Node.js</h3>
+    <p>
+      Learn how JavaScript can run outside the browser. We'll
+      cover npm, modules, servers, files, and APIs.
+    </p>
+    <span class="read">Read tutorial →</span>
+  </a>
 
-  </main>
+  <a href="/study/javascript" class="tutorial">
+    <span class="label">Web</span>
+    <h3>JavaScript</h3>
+    <p>
+      Start with the language behind interactive websites and
+      work your way up to the DOM, events, promises, and APIs.
+    </p>
+    <span class="read">Read tutorial →</span>
+  </a>
 
-  <footer>
-    <div class="footer-inner">
-      <span>© 2026 ITCode</span>
-      <span>Learn • Code • Understand</span>
+  <a href="/study/html" class="tutorial">
+    <span class="label">Web</span>
+    <h3>HTML & CSS</h3>
+    <p>
+      Learn how webpages are put together, from basic HTML
+      elements to layouts and responsive CSS.
+    </p>
+    <span class="read">Read tutorial →</span>
+  </a>
+
+  <a href="/study/git" class="tutorial">
+    <span class="label">Tools</span>
+    <h3>Git</h3>
+    <p>
+      Commits, branches, repositories, remotes, and the commands
+      you'll use when working on a project.
+    </p>
+    <span class="read">Read tutorial →</span>
+  </a>
+
+  <a href="/study/apis" class="tutorial">
+    <span class="label">Web</span>
+    <h3>APIs</h3>
+    <p>
+      What an API is, how requests and responses work, JSON,
+      endpoints, and how to make your own.
+    </p>
+    <span class="read">Read tutorial →</span>
+  </a>
+
+</div>
+
+
+  </section>
+
+  <section id="networking">
+
+
+<div class="section-title">
+  <h2>Networking</h2>
+  <p>What's happening underneath the browser?</p>
+</div>
+
+<div class="network-list">
+
+  <a href="/study/tcp" class="network-item">
+    <div>
+      <div class="network-name">TCP/IP</div>
+      <div class="network-description">
+        Packets, IP addresses, ports, connections, and routing.
+      </div>
     </div>
-  </footer>
+
+    <div class="arrow">→</div>
+  </a>
+
+  <a href="/study/http" class="network-item">
+    <div>
+      <div class="network-name">HTTP</div>
+      <div class="network-description">
+        Requests, responses, headers, status codes, and methods.
+      </div>
+    </div>
+
+    <div class="arrow">→</div>
+  </a>
+
+  <a href="/study/dns" class="network-item">
+    <div>
+      <div class="network-name">DNS</div>
+      <div class="network-description">
+        How a domain name eventually turns into an IP address.
+      </div>
+    </div>
+
+    <div class="arrow">→</div>
+  </a>
+
+  <a href="/study/tls" class="network-item">
+    <div>
+      <div class="network-name">TLS / HTTPS</div>
+      <div class="network-description">
+        Encryption, certificates, and secure connections.
+      </div>
+    </div>
+
+    <div class="arrow">→</div>
+  </a>
+
+  <a href="/study/websockets" class="network-item">
+    <div>
+      <div class="network-name">WebSockets</div>
+      <div class="network-description">
+        Keeping a connection open for real-time communication.
+      </div>
+    </div>
+
+    <div class="arrow">→</div>
+  </a>
+
+</div>
+
+
+  </section>
+
+  <section id="other">
+
+
+<div class="section-title">
+  <h2>Other stuff</h2>
+  <p>A few more things worth knowing.</p>
+</div>
+
+<div class="quick-links">
+  <a href="/study/linux">Linux</a>
+  <a href="/study/cli">Command Line</a>
+  <a href="/study/databases">Databases</a>
+  <a href="/study/sql">SQL</a>
+  <a href="/study/json">JSON</a>
+  <a href="/study/ssh">SSH</a>
+  <a href="/study/security">Web Security</a>
+  <a href="/study/servers">Web Servers</a>
+  <a href="/study/cookies">Cookies</a>
+  <a href="/study/caching">Caching</a>
+</div>
+
+
+  </section>
+
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <span>ITCode</span>
+    <span>Programming & technology tutorials</span>
+  </div>
+</footer>
 
 </body>
 </html>
